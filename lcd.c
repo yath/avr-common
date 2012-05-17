@@ -498,7 +498,7 @@ Display string from program memory without auto linefeed
 Input:     string from program memory be be displayed                                        
 Returns:   none
 *************************************************************************/
-void lcd_puts_p(const char *progmem_s)
+void lcd_puts_P(const char *progmem_s)
 /* print string from program memory on lcd (no auto linefeed) */
 {
     register char c;

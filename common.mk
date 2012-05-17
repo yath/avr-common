@@ -116,6 +116,10 @@ read-fuse:
 %.o : %.c Makefile
 	$(CC) -c $(ALL_CFLAGS) $< -o $@
 
+%.d: %.c
+	$(CC) $(ALL_CFLAGS) -M -MD -MP -MT $(<:.c=.o) -o $@ $<
+-include $(SRC:.c=.d)
+
 %.E: %.c
 	$(CC) -E $(ALL_CFLAGS) -o $@ $<
 

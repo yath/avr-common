@@ -17,6 +17,9 @@ CFLAGS += -DAVR_COMMON_API=$(AVR_COMMON_API)
 ifeq ($(DEBUG), 1)
 SRC += common/debug.c
 CFLAGS += -DDEBUG
+ifeq ($(ATOMIC_DEBUG),1)
+CFLAGS += -DATOMIC_DEBUG
+endif
 else
 CFLAGS += -DNDEBUG
 endif

@@ -22,10 +22,18 @@
         ONEZERO(GET_BIT(__copy, 1)), ONEZERO(GET_BIT(__copy, 0))); \
     } while(0)
 
+# ifdef ATOMIC_DEBUG
+#  define _COMMON_DEBUG_H_ATOMIC_START ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
+#  define _COMMON_DEBUG_H_ATOMIC_END   }
+# else
+#  define _COMMON_DEBUG_H_ATOMIC_START
+#  define _COMMON_DEBUG_H_ATOMIC_END
+# endif
+
 # define _COMMON_DEBUG_H_debug2(file, line, fmt, ...) do { \
-    ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { \
+    _COMMON_DEBUG_H_ATOMIC_START \
         printf_P(PSTR(file ":" STR(line) ": " fmt "\n"), ##__VA_ARGS__); \
-    } \
+    _COMMON_DEBUG_H_ATOMIC_END \
   } while(0)
 # define DEBUGGING 1 /* for use in _delay_ms(DEBUGGING?23:42) or so */
 #else

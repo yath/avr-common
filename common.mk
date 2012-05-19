@@ -16,7 +16,7 @@ CFLAGS += -DAVR_COMMON_API=$(AVR_COMMON_API)
 
 ifdef DEBUG
 SRC += common/debug.c
-CFLAGS += -DDEBUG
+CFLAGS += -DDEBUGGING=$(DEBUG)
 else
 CFLAGS += -DNDEBUG
 endif

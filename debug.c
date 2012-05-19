@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "common/common.h"
-#include <inttypes.h>
-
-#ifdef DEBUG
+#if DEBUGGING == 1
 FILE debugf = FDEV_SETUP_STREAM(
     (int(*)(char, FILE*))uart_putc,
     NULL,

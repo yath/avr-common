@@ -9,6 +9,7 @@
 # include <stdio.h>
 # include <avr/pgmspace.h> /* for PSTR() */
 # include <util/atomic.h>
+  extern FILE debugf;
   void debug_init(void);
 # define STR(x) # x
 # define ONEZERO(x) ((x)?'1':'0')

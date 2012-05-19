@@ -25,7 +25,7 @@
 
 # define _COMMON_DEBUG_H_debug2(file, line, fmt, ...) do { \
     ATOMIC_BLOCK(ATOMIC_RESTORESTATE) { \
-        fprintf_P(&debugf, PSTR(file ":" STR(line) ": " fmt "\n"), ##__VA_ARGS__); \
+        printf_P(PSTR(file ":" STR(line) ": " fmt "\n"), ##__VA_ARGS__); \
     } \
   } while(0)
 # define DEBUGGING 1 /* for use in _delay_ms(DEBUGGING?23:42) or so */
